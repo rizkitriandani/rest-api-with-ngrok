@@ -15,10 +15,11 @@ def check_spirit_animal(date: str, full_name: str):
 
     prompt = f"""given a date of birth and full name, check the date on various calendar, from gregorian, chinese, islamic and javanese calendar
 
-and then try to make a fun "spirit animal" based on all those various calendars combined with the full name.
+and then try to make a fun "spirit animal" based on all those various calendars, the zodiac charesterics based on date of birth and combined with the meaning of the full name.
 
-make it unique but consistent for each calendar. only return the name of spirit animal and its description. make it short.
+make it unique but consistent for each calendar. only return the name of spirit animal and its description, don't return the steps you take to reach the conclusion. make it short.
 
+note that the date is in DD-MM-YYYY format
 date : {date}
 full name: {full_name}"""
 
@@ -29,7 +30,7 @@ full name: {full_name}"""
                 "content": prompt,
             }
         ],
-        model="llama3-8b-8192",
+        model="llama3-70b-8192",
     )
 
     return chat_completion.choices[0].message.content
@@ -47,7 +48,6 @@ def check_spirit_animal_api():
     name = request.json["name"]
     response = check_spirit_animal(date=date, full_name=name)
     return jsonify({"message": response})
-
 
 
 if __name__ == "__main__":
