@@ -17,7 +17,7 @@ def check_spirit_animal(date: str, full_name: str):
 
 and then try to make a fun "spirit animal" based on all those various calendars combined with the full name.
 
-make it unique but consistent for each calendar. only return the name of spirit animal and its description.
+make it unique but consistent for each calendar. only return the name of spirit animal and its description. make it short.
 
 date : {date}
 full name: {full_name}"""
